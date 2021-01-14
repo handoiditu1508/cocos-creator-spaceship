@@ -1,0 +1,13 @@
+-zombie explode when die
+-player explode when touch zombie
+-explode sound
+
+-lobby scene
+-game custom scene
+ +time limit
+ +player speed
+ +zombie move
+ +zombie detect player
+ +zombie detect player sound
+ +zombie shoot
+-option scene
