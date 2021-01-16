@@ -15,16 +15,60 @@ cc.Class({
 			default: 10,
 			type: cc.Integer
 		},
+		_enemyLeft: 0,
+		enemeLeftLabel: {
+			default: null,
+			type: cc.Label,
+		},
 
 		enemyContainer: {
+			default: null,
+			type: cc.Node
+		},
+
+		popup: {
+			default: null,
+			type: cc.Node
+		},
+
+		player: {
+			default: null,
+			type: cc.Node
+		},
+
+		timer: {
 			default: null,
 			type: cc.Node
 		}
 	},
 
 	onLoad: function () {
+		var manager = cc.director.getCollisionManager();
+		manager.enabled = true;
+		//manager.enabledDebugDraw = true;
+		//manager.enabledDrawBoundingBox = true;
+
 		Global.game = this;
+		Global.state = Global.GAME_STATE.playing;
 		this.scatterEnemy(this.enemyNumber);
+		this._enemyLeft = this.enemyNumber;
+		this.enemeLeftLabel.string = "x " + this.enemyNumber;
+
+		if (Global.gameTime != null) {
+			this.timer.getComponent("Timer").time = Global.gameTime;
+		}
+
+		if (Global.playerSpeed != null) {
+			this.player.getComponent("PlayerControl").speed = Global.playerSpeed;
+		}
+
+		if (Global.isMobileEnemy != null) {
+			//enable enemy AI
+		}
+	},
+
+	onDestroy: function () {
+		Global.game = null;
 	},
 
 	convertToGameWorldSpaceAR: function (worldPoint) {
@@ -50,5 +94,19 @@ cc.Class({
 			enemy.position = this.getEnemyPosition();
 			this.enemyContainer.addChild(enemy);
 		}
+	},
+
+	enemyKilled: function () {
+		this._enemyLeft--;
+		this.enemeLeftLabel.string = "x " + this._enemyLeft;
+
+		if (this._enemyLeft == 0) {
+			this.onEndGame(true);
+		}
+	},
+
+	onEndGame: function (isWin) {
+		Global.state = isWin ? Global.GAME_STATE.won : Global.GAME_STATE.lost;
+		this.popup.getComponent("Popup").showWindow();
 	}
 });

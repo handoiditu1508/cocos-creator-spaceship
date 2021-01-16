@@ -67,7 +67,6 @@ cc.Class({
 
 	shoot: function () {
 		var projectile = cc.instantiate(this.projectilePrefab);
-		projectile.scaleX = this.node.scaleX;
 
 		var projectileComponent = projectile.getComponent("Projectile");
 		projectileComponent.directionX = this.node.scaleX;
@@ -79,7 +78,8 @@ cc.Class({
 	},
 
 	getProjectilePosition: function (projectileWidth) {
-		var projectilePosition = cc.v2(this.node.x + projectileWidth / 2 * this.node.scaleX, this.node.y);
+		//var projectilePosition = cc.v2(this.node.x + projectileWidth / 2 * this.node.scaleX, this.node.y);
+		var projectilePosition = cc.v2(this.node.x, this.node.y);
 		projectilePosition = this.node.parent.convertToWorldSpaceAR(projectilePosition);
 		projectilePosition = this.projectileContainer.convertToNodeSpaceAR(projectilePosition);
 		return projectilePosition;
