@@ -30,6 +30,8 @@ cc.Class({
 			default: null,
 			type: cc.AudioClip
 		},
+
+		_isFollowingPlayer: false
 	},
 
 	start: function () {
@@ -47,7 +49,10 @@ cc.Class({
 		this.node.setPosition(this.node.x + this.directionX * this.speed * dt, this.node.y + this.directionY * this.speed * dt);
 
 		if (this.isPlayerInSight()){
-			cc.audioEngine.playEffect(this.detectionAudio, false);
+			if(!this._isFollowingPlayer){
+				cc.audioEngine.playEffect(this.detectionAudio, false);
+				this._isFollowingPlayer = true;
+			}
 
 			var playerPos = Global.game.player.parent.convertToWorldSpaceAR(Global.game.player.position);
 			var enemyPos = this.node.parent.convertToWorldSpaceAR(this.node.position);
@@ -56,6 +61,7 @@ cc.Class({
 			this.directionX = direction.x;
 			this.directionY = direction.y;
 		}
+		else this._isFollowingPlayer = false;
 
 		var globalPosition = Global.game.convertToGameWorldSpaceAR(this.node.parent.convertToWorldSpaceAR(this.node.position));
 		if (globalPosition.x > Global.game.worldSize.width || globalPosition.x < 0 || globalPosition.y > Global.game.worldSize.height || globalPosition.y < 0) {
