@@ -21,7 +21,7 @@ module.exports = {
 		enemy: 2,
 		projectile: 3
 	},
-	GAME_STATE:{
+	GAME_STATE: {
 		notStart: 0,
 		lobby: 1,
 		customGame: 2,

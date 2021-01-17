@@ -43,7 +43,7 @@ cc.Class({
 		this.limitCameraPosition();
 	},
 
-	limitCameraPosition: function(){
+	limitCameraPosition: function () {
 		var cameraGlobalPos = Global.game.convertToGameWorldSpaceAR(this.node.parent.convertToWorldSpaceAR(this.node.position));
 
 		var halfCameraWidth = Global.game.node.getComponent(cc.Canvas).designResolution.width / 2;

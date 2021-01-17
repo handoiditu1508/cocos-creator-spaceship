@@ -24,7 +24,7 @@ cc.Class({
 		cc.Tween.stopAllByTag(TWEEN_TAG.toggleWindow);
 
 		cc.tween(this.node)
-		.tag(TWEEN_TAG.toggleWindow)
+			.tag(TWEEN_TAG.toggleWindow)
 			.to(0.5, { scale: 1, opacity: 255 }, { easing: "quartInOut" })
 			.start();
 	},
@@ -35,9 +35,9 @@ cc.Class({
 		cc.Tween.stopAllByTag(TWEEN_TAG.toggleWindow);
 
 		cc.tween(this.node)
-		.tag(TWEEN_TAG.toggleWindow)
+			.tag(TWEEN_TAG.toggleWindow)
 			.to(0.5, { scale: 0.2, opacity: 0 }, { easing: "quartInOut" })
-			.call(() => { this.node.active = false;})
+			.call(() => { this.node.active = false; })
 			.start();
 	},
 

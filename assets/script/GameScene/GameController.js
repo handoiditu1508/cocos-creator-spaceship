@@ -67,7 +67,7 @@ cc.Class({
 			this.player.getComponent("PlayerControl").speed = Global.playerSpeed;
 		}
 
-		Global.backgroundMusicAudioID = null,
+		Global.backgroundMusicAudioID = null;
 		cc.audioEngine.stopMusic();
 		cc.audioEngine.playMusic(this.backgroundMusic, true);
 	},

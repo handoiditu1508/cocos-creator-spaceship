@@ -34,7 +34,7 @@ cc.Class({
 		if (Math.abs(this.node.scaleX) > 1) {
 			this.node.scaleX = this.directionX;
 		}
-		
+
 		//this.node.getComponent(cc.BoxCollider).size.width = this.node.width * this.node.scaleX;
 
 		this.limitProjectilePosition();
@@ -55,9 +55,9 @@ cc.Class({
 				other.node.getComponent("Enemy").takeDamage(this.damage);
 				//this.node.destroy();
 				cc.tween(this.node)
-					.call(()=>{this.node.getComponent(cc.Collider).enabled = false})
+					.call(() => { this.node.getComponent(cc.Collider).enabled = false })
 					.delay(0.1)
-					.call(()=>{this.node.destroy()})
+					.call(() => { this.node.destroy() })
 					.start();
 				break;
 			default:

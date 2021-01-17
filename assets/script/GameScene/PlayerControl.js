@@ -71,7 +71,7 @@ cc.Class({
 			this.node.scaleX = directionX;
 	},
 
-	limitPlayerPosition: function(){
+	limitPlayerPosition: function () {
 		var globalPosition = Global.game.convertToGameWorldSpaceAR(this.node.parent.convertToWorldSpaceAR(this.node.position));
 
 		if (globalPosition.x > Global.game.worldSize.width)

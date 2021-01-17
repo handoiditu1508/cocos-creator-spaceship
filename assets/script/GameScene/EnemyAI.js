@@ -25,7 +25,7 @@ cc.Class({
 			type: cc.Float,
 			range: [-1, 1]
 		},
-		
+
 		detectionAudio: {
 			default: null,
 			type: cc.AudioClip
@@ -48,8 +48,8 @@ cc.Class({
 	update: function (dt) {
 		this.node.setPosition(this.node.x + this.directionX * this.speed * dt, this.node.y + this.directionY * this.speed * dt);
 
-		if (this.isPlayerInSight()){
-			if(!this._isFollowingPlayer){
+		if (this.isPlayerInSight()) {
+			if (!this._isFollowingPlayer) {
 				cc.audioEngine.playEffect(this.detectionAudio, false);
 				this._isFollowingPlayer = true;
 			}
