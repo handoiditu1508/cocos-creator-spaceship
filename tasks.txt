@@ -1,3 +1,0 @@
--lobby scene (exit game)
--lobby music
--game music

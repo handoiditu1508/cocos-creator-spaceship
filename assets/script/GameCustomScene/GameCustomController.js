@@ -21,7 +21,12 @@ cc.Class({
 		enemyMobilityCheckbox: {
 			default: null,
 			type: cc.Toggle
-		}
+		},
+
+		backgroundMusic: {
+			default: null,
+			type: cc.AudioClip
+		},
 	},
 
 	onLoad: function () {
@@ -50,6 +55,11 @@ cc.Class({
 			this.enemyMobilityCheckbox.isChecked = Global.isMobileEnemy;
 		}
 		else this.enemyMobilityCheckbox.isChecked = false;
+
+		if (Global.backgroundMusicAudioID == null || !cc.audioEngine.isMusicPlaying()) {
+			cc.audioEngine.stopMusic();
+			Global.backgroundMusicAudioID = cc.audioEngine.playMusic(this.backgroundMusic, true);
+		}
 	},
 
 	onDestroy: function () {

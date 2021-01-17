@@ -1470,6 +1470,9 @@
       "__id__": 2
     },
     "_enabled": true,
+    "backgroundMusic": {
+      "__uuid__": "9a0e3943-855d-497a-be54-1653074e3f36"
+    },
     "_id": "66PVgXhABJtaYVh7naZevn"
   }
 ]

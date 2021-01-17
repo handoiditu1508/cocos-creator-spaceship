@@ -2030,6 +2030,9 @@
     "timer": {
       "__id__": 20
     },
+    "backgroundMusic": {
+      "__uuid__": "43f883e7-9385-4307-a9b1-92ae8c314dec"
+    },
     "_id": "5crLh0AlRKIoeDhRRb01Ai"
   }
 ]

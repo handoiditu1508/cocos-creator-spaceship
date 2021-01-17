@@ -8,6 +8,8 @@ module.exports = {
 	playerSpeed: null,
 	isMobileEnemy: null,
 
+	backgroundMusicAudioID: null,
+
 	KEY: cc.Enum(cc.macro.KEY),
 	DIRECTION_X: cc.Enum({
 		left: -1,

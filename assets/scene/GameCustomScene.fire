@@ -201,7 +201,7 @@
       "array": [
         0,
         0,
-        311.16562678593294,
+        311.000563673938,
         0,
         0,
         0,
@@ -2864,6 +2864,9 @@
     },
     "enemyMobilityCheckbox": {
       "__id__": 42
+    },
+    "backgroundMusic": {
+      "__uuid__": "9a0e3943-855d-497a-be54-1653074e3f36"
     },
     "_id": "02JwJXyiRGTKhoCaaqaVu4"
   }

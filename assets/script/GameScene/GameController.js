@@ -39,7 +39,12 @@ cc.Class({
 		timer: {
 			default: null,
 			type: cc.Node
-		}
+		},
+
+		backgroundMusic: {
+			default: null,
+			type: cc.AudioClip
+		},
 	},
 
 	onLoad: function () {
@@ -62,9 +67,9 @@ cc.Class({
 			this.player.getComponent("PlayerControl").speed = Global.playerSpeed;
 		}
 
-		if (Global.isMobileEnemy != null) {
-			//enable enemy AI
-		}
+		Global.backgroundMusicAudioID = null,
+		cc.audioEngine.stopMusic();
+		cc.audioEngine.playMusic(this.backgroundMusic, true);
 	},
 
 	onDestroy: function () {
@@ -91,6 +96,9 @@ cc.Class({
 	scatterEnemy: function (number) {
 		for (var i = 0; i < number; i++) {
 			var enemy = cc.instantiate(this.enemyPrefab);
+			if (Global.isMobileEnemy != null) {
+				enemy.getComponent("EnemyAI").enabled = Global.isMobileEnemy;
+			}
 			enemy.position = this.getEnemyPosition();
 			this.enemyContainer.addChild(enemy);
 		}
