@@ -18,6 +18,8 @@ cc.Class({
 			cc.audioEngine.stopMusic();
 			Global.backgroundMusicAudioID = cc.audioEngine.playMusic(this.backgroundMusic, true);
 		}
+
+		cc.director.preloadScene("GameCustomScene");
 	},
 
 	onDestroy: function () {

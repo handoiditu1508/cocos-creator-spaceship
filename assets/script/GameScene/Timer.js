@@ -8,7 +8,8 @@ cc.Class({
 			default: 99,
 			type: cc.Float,
 			tooltip: "Time in seconds"
-		}
+		},
+		isPaused: false
 	},
 
 	start: function () {
@@ -16,13 +17,15 @@ cc.Class({
 	},
 
 	update: function (dt) {
-		if (dt > this.time) {
-			this.time = 0;
-			this.enabled = false;
-			Global.game.onEndGame(false);
+		if (!this.isPaused) {
+			if (dt > this.time) {
+				this.time = 0;
+				this.enabled = false;
+				Global.game.onEndGame(false);
+			}
+			else this.time -= dt;
+			this.node.getComponent(cc.Label).string = this.formatSeconds(this.time);
 		}
-		else this.time -= dt;
-		this.node.getComponent(cc.Label).string = this.formatSeconds(this.time);
 	},
 
 	formatSeconds: function (seconds) {

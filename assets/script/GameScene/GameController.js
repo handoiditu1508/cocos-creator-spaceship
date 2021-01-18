@@ -116,5 +116,6 @@ cc.Class({
 	onEndGame: function (isWin) {
 		Global.state = isWin ? Global.GAME_STATE.won : Global.GAME_STATE.lost;
 		this.popup.getComponent("Popup").showWindow();
+		this.timer.getComponent("Timer").isPaused = true;
 	}
 });

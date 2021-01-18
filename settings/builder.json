@@ -1,7 +1,7 @@
 {
   "title": "SpaceShip",
   "packageName": "org.cocos2d.demo",
-  "startScene": "5f356f13-4d69-4c41-82bc-30c5545f01a3",
+  "startScene": "e2dac23d-1fc3-4025-abb1-1f542588d226",
   "excludeScenes": [],
   "orientation": {
     "landscapeLeft": true,
