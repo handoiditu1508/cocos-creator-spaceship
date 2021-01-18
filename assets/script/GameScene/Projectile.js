@@ -21,10 +21,8 @@ cc.Class({
 		causeDamageToPlayer: false
 	},
 
-	start: function () {
-		//this.node.scaleX =this.directionX;
+	onLoad: function () {
 		this.node.scaleX = 0;
-		//this.node.getComponent(cc.BoxCollider).size.width = 0;
 	},
 
 	update: function (dt) {
