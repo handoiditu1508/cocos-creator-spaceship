@@ -51,12 +51,12 @@ cc.Class({
 		switch (other.node.groupIndex) {
 			case Global.GROUP.enemy:
 				other.node.getComponent("Enemy").takeDamage(this.damage);
-				//this.node.destroy();
-				cc.tween(this.node)
+				this.node.destroy();
+				/*cc.tween(this.node)
 					.call(() => { this.node.getComponent(cc.Collider).enabled = false })
 					.delay(0.1)
 					.call(() => { this.node.destroy() })
-					.start();
+					.start();*/
 				break;
 			default:
 				break;
